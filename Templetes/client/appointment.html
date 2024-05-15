@@ -1,0 +1,108 @@
+{% extends 'client/layout.html' %}
+{%load static%}
+{%block content%}
+
+    <!-- ================ contact section start ================= -->
+
+
+ <div class="appointment_area">
+    {% if messages %}
+    <ul class="messages" style="height: 80px; background-color: lightgrey;">
+        {% for message in messages %}
+
+        <li style="font-size: 25px; list-style: none; line-height: 80px; font-weight: bolder; color: #37373F;" class="text-center" {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-5 col-md-6 col-lg-6">
+                    <div class="appiontment_thumb d-none d-lg-block">
+                        <img src="{% static 'client/img/appointment/1.png'%}">
+                    </div>
+                </div>
+                <div class="col-xl-6 offset-xl-1 col-md-6 col-md-12 col-lg-6">
+                    <div class="appointment_info">
+                        <div class="opacity_icon d-none d-lg-block">
+                            <i class="flaticon-balance"></i>
+                        </div>
+                        <h3>Make an Appointment</h3>
+                        <p></p>
+                        <form form method="post" action="/client/appointment_store">
+                            {% csrf_token %}
+                                <div class="row">
+                                 
+                                    <div class="col-xl-12">
+                                        <input type="text"id="username" pattern="[a-zA-Z0-9\s]{4,50}" title="Subject must be between 4 and 20 letters and only contains letters and numbers" name="subject" id="subject" placeholder=" Subject (e.g. To discuss on evidence)"  >
+                                    
+                                        
+                                    </div>
+                                    <div class="col-xl-6 col-md-6">
+                                            <input type="time" name="time" id="time" placeholder=""  required>
+                                    </div>
+                                    <div class="col-xl-6 col-md-6">
+                                        
+                                        <input type="date" name="date" id="" placeholder="Appointment date" class="form-control">
+                                    </div>
+                                       <div class="col-xl-12">
+                                           <div class="form-group">
+                                        <label class="control-label" for="case">Select Case</label>
+                                        <select class="form-control" for="case" name="case" required="">
+                                            {% for res in client %}
+                                            {% if res.user_id == user.id %}
+                                                {% for row in cases %}
+                                                    {% if row.client_id == res.id %}     
+                                                        <option value="{{row.id}}">{{row.title}}</option>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            {% endif %}
+                                        {% endfor %}
+                                        </select>
+                                    </div>
+                                    </div>
+                                    <div class="col-xl-12">
+                                        <textarea placeholder="Message" name="message"></textarea>
+                                    </div>
+
+                                    <div class="col-xl-12">
+                                        <div class="appoinment_button">
+                                            <button class="boxed-btn5 " type="submit" >Request Appointment</button>
+                                        </div>
+                                    </div>
+                                </div>
+        
+                            </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const usernameInput = document.getElementById("username");
+        const errorMsg = document.getElementById("error-msg");
+        
+        
+        function validateUsername() {
+          if (usernameInput.validity.patternMismatch) {
+            errormsg.textContent = "Subject must be between 4 and 50 letters and only contains letters and numbers";
+            usernameInput.setCustomValidity("Subject must be between 4 and 50 letters and only contains letters and numbers");
+          } else {
+            errormsg.textContent = "";
+            usernameInput.setCustomValidity("");
+          }
+  
+          if (fullnameInput.validity.valid && usernameInput.validity.valid && passwordInput.validity.valid && emailInput.validity.valid && contactNumberInput.validity.valid && photoInput.validity.valid && zipcodeInput.validity.valid) {
+            submitBtn.disabled = false;
+          }
+        }
+  
+        usernameInput.addEventListener("input", validateUsername);
+        
+        
+      </script>
+    <!-- ================ contact section end ================= -->
+        
+   
+
+{%endblock%}

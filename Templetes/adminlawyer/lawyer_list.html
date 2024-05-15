@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lawyer List</title>
+</head>
+<body>
+    <h1>Lawyer List</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Lawyer Name</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Date of Birth</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Contact</th>
+                <th>Qualification</th>
+                <th>Experience</th>
+                <th>Registration Date</th>
+                <th>Address</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for lawyer in lawyers %}
+            <tr>
+                <td>{{ lawyer.lawyer_name }}</td>
+                <td>{{ lawyer.user.username }}</td>
+                <td>{{ lawyer.user.email }}</td>
+                <td>{{ lawyer.dob }}</td>
+                <td>{{ lawyer.age }}</td>
+                <td>{{ lawyer.gender }}</td>
+                <td>{{ lawyer.contact }}</td>
+                <td>{{ lawyer.qualification }}</td>
+                <td>{{ lawyer.experience }}</td>
+                <td>{{ lawyer.registration_date }}</td>
+                <td>{{ lawyer.address }}</td>
+                <td>
+                    <form action="{% url 'delete_lawyer' lawyer.id %}" method="post">
+                        {% csrf_token %}
+                        <input type="submit" value="Delete">
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

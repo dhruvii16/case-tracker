@@ -1,0 +1,17 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Appointment Approval</title>
+</head>
+<body>
+    <h2>Your Appointment Request is Approved</h2>
+    <p>Your Appointment Request is Approved for {{ appointment.date }} on {{ appointment.time }}. Thank you!</p>
+    
+    <!-- Links to add the event to Google Calendar and Outlook Calendar -->
+    <p>Click below links to add this event to your calendar:</p>
+    <H3><a href="{{ google_calendar_link }}">Google Calendar</a>&#160;
+    <a href="{{ outlook_calendar_link }}">Outlook Calendar</a></h3>
+</body>
+</html>

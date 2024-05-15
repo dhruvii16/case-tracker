@@ -1,0 +1,141 @@
+{% extends 'adminlawyer/layout.html' %}
+{%load static%}
+{%block content%}
+
+<div class="main-container">
+    <div class="pd-ltr-20 xs-pd-20-10">
+        <div class="min-height-200px">
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="title">
+                            <h4>Add New Case</h4>
+                        </div>
+                        <nav aria-label="breadcrumb" role="navigation">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Add Cases</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <!-- Default Basic Forms Start -->
+            <div class="pd-20 card-box mb-30">
+                <div class="clearfix">
+                    <div class="pull-left">
+                        <h4 class="text-blue h4">Add Cases</h4>
+                        <p></p>
+                    </div>
+                </div>
+                <form>
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-md-2 col-form-label">Case Title:</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input class="form-control" type="text" placeholder="Enter your case title">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-md-2 col-form-label">Case Type:</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input class="form-control" type="text" placeholder="Enter your case Type">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-md-2 col-form-label">Case Description:</label>
+                        <div class="col-sm-12 col-md-10">
+                            <textarea class="form-control" minlength="4" maxlength="255" id="address" placeholder="Enter Your case description"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-md-2 col-form-label">Registration Date:</label>
+                        <div class="col-sm-12 col-md-10">
+                                <input type="date" class="form-control" id="inputZip" name="case_reg_date" >
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-md-2 col-form-label">Lawyer Name:</label>
+                        <div class="col-sm-12 col-md-10">
+                            <!-- <input class="form-control" type="text" placeholder="Enter lawyer name"> -->
+                            <select id="lawyer" name="lawyer" class="form-control select2" data-toggle="select2" required>
+													
+                                {% for u in result1 %}
+                                    <option value="{{u.id}}" >{{u.lawyer_name}}</option>
+                                {% endfor %}
+                              </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-md-2 col-form-label">Client Name:</label>
+                        <div class="col-sm-12 col-md-10">
+                            <!-- <input class="form-control" type="text" placeholder="Enter lawyer name"> -->
+                            <select id="lawyer" name="lawyer" class="form-control select2" data-toggle="select2" required>
+													
+                                {% for u in result1 %}
+                                    <option value="{{u.id}}" >{{u.lawyer_name}}</option>
+                                {% endfor %}
+                              </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-md-2 col-form-label">Judge Name:</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input class="form-control" type="text" placeholder="Enter judge name">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-md-2 col-form-label">Police Station:</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input class="form-control" type="text" placeholder="Enter police station name">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-md-2 col-form-label">Court:</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input class="form-control" type="text" placeholder="Enter Court name">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-md-2 col-form-label">FIR Copy:</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input type="file" class="form-control" id="inputPassword4" name="fir_copy" placeholder="" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-md-2 col-form-label">City:</label>
+                        <div class="col-sm-12 col-md-10">
+                            <select name="city" class="form-control select2" data-toggle="select2">
+													
+                                {% for y in city %}
+                                    <option value="{{y.id}}" >{{y.city_name}}</option>
+                                {% endfor %}
+                                </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-md-2 col-form-label">State:</label>
+                        <div class="col-sm-12 col-md-10">
+                            <select name="city" class="form-control select2" data-toggle="select2">
+													
+                                {% for y in state %}
+                                    <option value="{{y.id}}" >{{y.state_name}}</option>
+                                {% endfor %}
+                                </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-md-2 col-form-label">Case Status:</label>
+                        <div class="col-sm-12 col-md-10">
+                            <select id="status" name="status" class="form-control">			
+                                <option>Running</option>
+                                <option>Closed</option>
+                              </select>
+                        </div>
+                    </div>
+                    <center><button type="submit" class="btn btn-primary" style="font-size:1rem;">Submit</button></center>
+            </div>
+        </div>
+    </div>
+</div>
+
+{%endblock%}

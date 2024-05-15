@@ -1,0 +1,52 @@
+{%load static%}
+<header>
+    <div class="header-area ">
+        <div id="sticky-header" class="main-header-area">
+            <div class="container-fluid p-0">
+                <div class="row align-items-center justify-content-between no-gutters">
+                    <div class="col-xl-2 col-lg-2">
+                        <div class="logo-img">
+                            <a href="/client/home">
+                                <img src="{% static 'client/img/logo_hr.png'%}" alt="" height="90%" width="90%">
+                               
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-9 col-lg-8">
+                        <div class="main-menu  d-none d-lg-block">
+                            <nav>
+                                <ul id="navigation">
+                                  
+                                    <li><a class="active" href="/client/home">home</a></li>
+                                    <!-- <li><a href="/client/our_lawyers">our_lawyers</a></li> -->
+                                    <li><a href="/client/about">About</a></li>
+                                    
+                                    <li><a href="/client/contact">Contact</a></li>
+                                    {% if request.session.client_name %}
+                                    <li><a href="/client/cases">Cases</a></li>
+                                    <li><a href="/client/appointment">Appointment</a></li>
+                                    <li><a href="/client/feedback">Feedback</a></li>
+                                        <li><a href="/client/profile/{{user.id}}">Profile</a></li>
+                                        <li><a href="/client/logout" style="background-color: #F2C64D;">Log Out</a></li>
+                                    {% else %}
+                                        <li><a href="/client/login" style="background-color: #F2C64D;">Log In</a></li>
+                                        
+                                    {% endif %}
+                                </ul>
+
+                            </nav>
+                        </div>
+                    </div>
+                       {% if request.session.client_name %}
+                        <center>
+                                         <span style="color: whitesmoke; ">Welcome<br>{{ request.session.client_name }}</span>
+                   
+                                        {% endif %}
+                    </center>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+

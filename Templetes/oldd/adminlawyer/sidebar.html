@@ -1,0 +1,109 @@
+{%load static%}
+
+<div class="left-side-bar" >
+    <div class="brand-logo" style=" margin-bottom: 25px;">
+        <!-- <a href="/myadmin/index">
+            <img src="{% static 'lawyer/vendors/images/logo_s.png'%}" alt=""  height="100%" width="500px">
+            <img src="{% static 'lawyer/vendors/images/dashboard_logo.png'%}" alt="" class="light-logo">
+        </a> -->
+        <table cellspacing="0" cellpadding="15px" >
+            <Tr>
+                <td>
+                    <img src="{% static 'lawyer/vendors/images/logo_s.png'%}" alt="" class="light-logo" height="90%" width="90%">
+                </td>
+                
+            </Tr>
+        </table>
+        <div class="close-sidebar" data-toggle="left-sidebar-close">
+            <i class="ion-close-round"></i>
+        </div>
+    </div>
+    <div class="menu-block customscroll">
+        <div class="sidebar-menu">
+            <ul id="accordion-menu">
+                <li>
+                    <a href="/myadmin/dashboard" class="dropdown-toggle no-arrow">
+                        <span class="micon fa fa-dashboard"></span><span class="mtext">Dashboard</span>
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle">
+                        <span class="micon fa fa-legal"></span><span class="mtext">Cases</span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="/myadmin/add_case">Add Cases</a></li>
+                        <li><a href="/myadmin/view_cases">View All Cases</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle">
+                        <span class="micon fa fa-user-circle"></span><span class="mtext">Clients</span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="/myadmin/add_client">Add Clients</a></li>
+                        <li><a href="/myadmin/view_client">View All Clients</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle">
+                        <span class="micon fa fa-users"></span><span class="mtext">Staff Members</span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="/myadmin/add_member">Add Staff Members</a></li>
+                        <li><a href="/myadmin/view_member">View All Staff Members</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/myadmin/view_appointment" class="dropdown-toggle no-arrow">
+                        <span class="micon fa fa-hourglass"></span><span class="mtext">Appoinment</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/myadmin/view_all_date" class="dropdown-toggle no-arrow">
+                        <span class="micon fa fa-calendar"></span><span class="mtext">Hearing Dates</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/myadmin/view_feedback" class="dropdown-toggle no-arrow">
+                        <span class="micon fa fa-comments"></span><span class="mtext">Feedback</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/myadmin/login" class="dropdown-toggle no-arrow">
+                        <span class="micon fa fa-sign-out"></span><span class="mtext">Logout</span>
+                    </a>
+                </li>
+                
+                <!-- <li class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle">
+                        <span class="micon dw dw-edit2"></span><span class="mtext">Forms</span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="form-basic.html">Form Basic</a></li>
+                        <li><a href="advanced-components.html">Advanced Components</a></li>
+                        <li><a href="form-wizard.html">Form Wizard</a></li>
+                        <li><a href="html5-editor.html">HTML5 Editor</a></li>
+                        <li><a href="form-pickers.html">Form Pickers</a></li>
+                        <li><a href="image-cropper.html">Image Cropper</a></li>
+                        <li><a href="image-dropzone.html">Image Dropzone</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle">
+                        <span class="micon dw dw-library"></span><span class="mtext">Tables</span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="basic-table.html">Basic Tables</a></li>
+                        <li><a href="datatable.html">DataTables</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="calendar.html" class="dropdown-toggle no-arrow">
+                        <span class="micon dw dw-calendar1"></span><span class="mtext">Calendar</span>
+                    </a>
+                </li> -->
+                
+            </div>
+        
+    </div>
+</div>

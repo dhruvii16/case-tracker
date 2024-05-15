@@ -1,0 +1,61 @@
+{% extends 'adminlawyer/layout.html' %}
+{%load static%}
+{%block content%}
+
+<div class="main-container">
+    <div class="pd-ltr-20 xs-pd-20-10">
+        <div class="min-height-200px">
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="title">
+                            <h4>Feedbacks</h4>
+                        </div>
+                        <nav aria-label="breadcrumb" role="navigation">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Feedbacks</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <!-- Simple Datatable start -->
+            <div class="card-box mb-30">
+                <div class="pd-20">
+                    <h4 class="text-blue h4">Feedback</h4>
+                    <p class="mb-0">Stored all the required details of Feedbacks</p>
+                </div>
+                <div class="pb-20">
+                    <table class="data-table table stripe hover nowrap">
+                        <thead>
+                            <tr>
+                                <th class="table-plus datatable-nosort">Feedback id</th>
+                                <th>Client</th>
+                                <th>Case</th>
+                                <th>Rating</th>
+                                <th>Message</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="table-plus">1</td>
+                                <td>dhruvi</td>
+                                <td>hit and run</td>
+                                <td>4</td>
+                                <td>keep it up!!</td>
+                                <td>may 20,2023</td>
+                                <td>5:20 p.m.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- Simple Datatable End -->
+        </div>
+    </div>
+</div>
+
+{%endblock%}

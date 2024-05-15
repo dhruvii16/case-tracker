@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client List</title>
+</head>
+<body>
+    <h1>Client List</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Client Name</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Date of Birth</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Contact</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Zipcode</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for client in clients %}
+            <tr>
+                <td>{{ client.client_name }}</td>
+                <td>{{ client.user.username }}</td>
+                <td>{{ client.user.email }}</td>
+                <td>{{ client.dob }}</td>
+                <td>{{ client.age }}</td>
+                <td>{{ client.gender }}</td>
+                <td>{{ client.contact }}</td>
+                <td>{{ client.address }}</td>
+                <td>{{ client.city }}</td>
+                <td>{{ client.state }}</td>
+                <td>{{ client.zipcode }}</td>
+                <td>
+                    <form action="{% url 'delete_client' client.id %}" method="post">
+                        {% csrf_token %}
+                        <input type="submit" value="Delete">
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

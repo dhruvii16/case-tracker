@@ -1,0 +1,167 @@
+{% extends 'adminlawyer/layout.html' %}
+{%load static%}
+{%block content%}
+
+<div class="main-container">
+    <div class="pd-ltr-20 xs-pd-20-10">
+        <div class="min-height-200px">
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="title">
+                            <h4>Add New Member</h4>
+                        </div>
+                        <nav aria-label="breadcrumb" role="navigation">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Add Member</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <!-- Default Basic Forms Start -->
+            <div class="pd-20 card-box mb-30">
+                <div class="clearfix">
+                    <div class="pull-left">
+                        <h4 class="text-blue h4">Add Staff Member</h4>
+                        <p></p>
+                    </div>
+                </div>
+                <form>
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-md-2 col-form-label">Full Name:</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input class="form-control" type="text" placeholder="Enter your name">
+                            <div id="fullnameError" class="error"></div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-md-2 col-form-label">Email</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input class="form-control" value="ex@example.com" type="email">
+                            <div id="emailError" class="error"></div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-md-2 col-form-label">Address:</label>
+                        <div class="col-sm-12 col-md-10">
+                            <textarea class="form-control" minlength="4" maxlength="255" id="address" placeholder="Enter Your case description"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-md-2 col-form-label">Contact Number:</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input type="tel"  class="form-control" placeholder="e.g. 9898136695">
+                            <div id="contactNumberError" class="error"></div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-md-2 col-form-label">User Name:</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input class="form-control" type="text" placeholder="Enter your username">
+                            <div id="errormsg" class="error"></div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-md-2 col-form-label">Photo:</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input type="file" class="form-control" id="photo" name="photo" accept="image/*" placeholder="" required>
+                            <div id="photoError" class="error"></div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-md-2 col-form-label">Qualification:</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input class="form-control" type="text" placeholder="LLB">
+                            <div id="fullnameError" class="error"></div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-md-2 col-form-label">Experience(Years):</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input class="form-control" type="text" placeholder="2">
+                            <div id="fullnameError" class="error"></div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-md-2 col-form-label">Password:</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input type="password" class="form-control" value="password" placeholder="Enter your password">
+                            <!-- <input type="checkbox" class="form-check-input" onclick="myFunction()"> Show Password -->
+                            <div id="passwordError" class="error"></div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="form-label" for="inputPassword4">Gender : </label>
+                        <div class="col-sm-12 col-md-10">
+                                                        <label class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="gender" value="Male" style="font-size:1rem;" required>
+                                                        <span class="form-check-label" style="font-size:1rem;">
+                                                          Male
+                                                        </span>
+                                                        </label>
+    
+                                                        <label class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="gender" value="Female" style="font-size:1rem;" required>
+                                                        <span class="form-check-label" style="font-size:1rem;">
+                                                          Female
+                                                        </span>
+                                                        </label>
+    
+                                                        <label class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="gender" value="Other" style="font-size:1rem;" required>
+                                                        <span class="form-check-label" style="font-size:1rem;"> 
+                                                          Other
+                                                        </span>
+                                                        </label>
+                        </div>
+                    </div>
+                        <div class="form-group row">
+                            <label class="col-sm-12 col-md-2 col-form-label">Date of Birth:</label>
+                            <div class="col-sm-12 col-md-10">
+                                    <input type="date" class="form-control" id="inputZip" name="case_reg_date" >
+                            </div>
+                        </div>
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-md-2 col-form-label">Case Type:</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input class="form-control" type="text" placeholder="Enter your case Type">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-md-2 col-form-label">City:</label>
+                        <div class="col-sm-12 col-md-10">
+                            <select name="city" class="form-control select2" data-toggle="select2">
+													
+                                {% for y in city %}
+                                    <option value="{{y.id}}" >{{y.city_name}}</option>
+                                {% endfor %}
+                                </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-md-2 col-form-label">State:</label>
+                        <div class="col-sm-12 col-md-10">
+                            <select name="city" class="form-control select2" data-toggle="select2">
+													
+                                {% for y in state %}
+                                    <option value="{{y.id}}" >{{y.state_name}}</option>
+                                {% endfor %}
+                                </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-md-2 col-form-label">ZIP Code:</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input type="number" class="form-control" placeholder="e.g. 812481">
+                            <div id="zipcodeError" class="error"></div>
+                        </div>
+                    </div>
+                    <center><button type="submit" class="btn btn-primary" style="font-size:1rem;">Submit</button></center>
+            </div>
+        </div>
+    </div>
+</div>
+
+{%endblock%}

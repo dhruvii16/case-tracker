@@ -1,0 +1,148 @@
+{% extends 'client/layout.html' %}
+{% load static %}
+{% block content %}
+
+<div class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="page-caption">
+                        <h3 class="page-title">Case Details</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-breadcrumb">
+        <div class="container">
+            <div class="col-lg-12">
+                <ol class="breadcrumb">
+                    <li><a href="#">Home</a></li>
+                    <h3><li class="active">Cases Details</li></h3>  
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <!-- <table cellspacing="20px" cellpadding="20px" align="center">
+        <thead>
+            <th>Case ID</th>
+            <th>Case Title</th>
+
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{result.id}}</td>
+                <td>{{result.title}}</td>
+            </tr>
+            <tr>
+                <td>{{result.id}}</td>
+                <td>{{result.title}}</td>
+            </tr>
+        </tbody>
+    </table> -->
+<div class="content">
+        <div class="container">
+            <div class="row">
+                <h1>Case Deatails</h1>
+                <table>
+                      <tr>
+                        <th>Case ID</th>
+                        <th>Case Title</th>
+                      </tr>
+                      <tr>
+                        <td>{{result.id}}</td>
+                        <td>{{result.title}}</td>
+                      </tr>
+                      <tr>
+                        <th>Case Type</th>
+                        <th>Case Description</th>
+                      </tr>
+                      <tr>
+                        <td>{{result.case_type}}</td>
+                        <td>{{result.description}}</td>
+                      </tr>
+                      <tr>
+                        <th>Client Name</th>
+                        <th>Lawyer Name</th>
+                      </tr>
+                      <tr>
+                        <td>{{result.client}}</td>
+                        <td>{{result.lawyer}}</td>
+                      </tr>
+                      <tr>
+                        <th>Case Registration Date</th>
+                        <th>Judge Name</th>
+                      </tr>
+                      <tr>
+                        <td>{{result.case_reg_date}}</td>
+                        <td>{{result.judge}}</td>
+                      </tr>
+                      <tr>
+                        <th>Court</th>
+                        <th>Police Station</th>
+                      </tr>
+                      <tr>
+                        <td>{{result.court}}</td>
+                        <td>{{result.police_station}}</td>
+                      </tr>
+                      <tr>
+                        <th>Case Status</th>
+                        <th></th>
+                      </tr>
+                      <tr>
+                        <td>{{result.status}}</td>
+                        <td></td>
+                      </tr>
+                </table><br><br>
+
+                <h1>Hearing Dates</h1>
+                <table>
+                        <tr>
+                                <td>Case ID</td>
+                                <td>Hearing Date</td>
+                                <td>Remarks</td>
+                                <td>Description</td>
+                                <td>Status</td>
+                                
+                        </tr>
+
+                            {% for row in dates %}
+                                {% if row.cases_id == result.id %}
+                                    <tr>
+                                        <td>{{row.cases}}</td>
+                                        <td>{{row.next_hearing_date}}</td>
+                                        <td>{{row.remarks}}</td>
+                                        <td>{{row.description}}</td>
+                                        <td>{{row.status}}</td>
+                                        
+                                    </tr>
+                                {% endif %}
+                            {% endfor %}
+                        </tbody>
+                </table><br><br>
+
+                <h1>Documents</h1>
+                <table>
+                        <tr>
+                            <td>FileId</td>
+                            <td>FileName</td>
+                            <td>File</td>
+                        </tr>
+
+
+                        {% for row in docs %}
+                        {% if row.cases_id == result.id %}
+                            <tr>
+                                <td>{{row.id}}</td>
+                                <td>{{row.title}}</td>
+                                <td><a href="/media/document/{{row.document}}" download>Download</a></td>
+                                <!-- <td><img src="/media/document/{{row.document}}" height="100" width="100"></td> -->
+                            </tr>
+                        {% endif %}
+                        {% endfor %}
+                        </tbody>
+                </table>
+
+</div></div></div>
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends 'client/layout.html' %}
+{%load static%}
+{%block content%}
+
+<div class="practice_area">
+    <div class="container-fluid p-0">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="section_title text-center mb-60">
+                    <h3>About us</h3>
+                    <p>Cases Categories that have been covered by our firm.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row no-gutters">
+            <div class="col-xl-3 col-md-6">
+                <div class="single_practice">
+                    <div class="practice_image">
+                        <img src="{% static 'client/img/practice/1.png'%}" alt="">
+                    </div>
+                    <div class="practice_hover text-center">
+                        <div class="hover_inner">
+                            <i class="flaticon-case"></i>
+                            <h3>Business Law</h3>
+                            <p>The purpose of business law is to make sure that businesses operate legally and ethically.</p>
+                            <!-- <a href="#" class="lern_more">Learn More</a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="single_practice">
+                    <div class="practice_image">
+                        <img src="{% static 'client/img/practice/2.png'%}" alt="">
+                    </div>
+                    <div class="practice_hover text-center">
+                        <div class="hover_inner">
+                            <i class="flaticon-courthouse"></i>
+                            <h3>Finance Law</h3>
+                            <p>Financial law is the law and regulation of the commercial banking, capital markets, insurance.</p>
+                            <!-- <a href="#" class="lern_more">Learn More</a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="single_practice">
+                    <div class="practice_image">
+                        <img src="{% static 'client/img/practice/3.png'%}" alt="">
+                    </div>
+                    <div class="practice_hover text-center">
+                        <div class="hover_inner">
+                            <i class="flaticon-judge"></i>
+                            <h3>Family Law</h3>
+                            <p> body of law regulating family relationships, including marriage and divorce, the treatment of children, and related economic matters
+                            </p>
+                            <!-- <a href="#" class="lern_more">Learn More</a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="single_practice">
+                    <div class="practice_image">
+                        <img src="{% static 'client/img/practice/4.png'%}" alt="">
+                    </div>
+                    <div class="practice_hover text-center">
+                        <div class="hover_inner">
+                            <i class="flaticon-jury"></i>
+                            <h3>Education Law</h3>
+                            <p> a field of study that imparts knowledge of specific legal principles and laws to students.</p>
+                            <!-- <a href="#" class="lern_more">Learn More</a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{%endblock%}

@@ -1,0 +1,97 @@
+{% extends 'client/layout.html' %}
+{%load static%}
+{%block content%}
+
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<body>
+    
+  
+    <section class="contact-section">
+
+        <div class="container">
+             {% if messages %}
+    <ul class="messages" style="height: 80px; background-color: lightgrey;">
+        {% for message in messages %}
+
+        <li style="font-size: 25px; list-style: none; line-height: 80px; font-weight: bolder; color: #37373F;" class="text-center" {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+            <div class="practice_area">
+    <div class="container-fluid p-0">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="section_title text-center mb-60">
+                    <h3>Feedback</h3>
+                    <p>Give us your valuable feedback. We'll do everything we can to respond to you as quickly as possible.</p>
+                </div>
+            </div>
+        </div>
+            <div class="row">
+               
+                <div class="col-lg-8">
+                    <form class="form-contact contact_form" method="post" action="/client/feedback_store">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label class="control-label" for="case">Select Case</label>
+                                    <select class="form-control" for="case" name="case" required>
+                                        {% for res in client %}
+                                            {% if res.user_id == user.id %}
+                                                {% for row in cases %}
+                                                    {% if row.client_id == res.id %}     
+                                                        <option value="{{row.id}}">{{row.title}}</option>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            {% endif %}
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                            <div class="form-group">
+                                <label class="control-label">Give Rating</label>
+                                <div style="height: 20px; width: auto; margin-top: 10px;">
+                                    
+                                        <input type="radio" name="rating" value="1" style="width: 17px;  height: 17px; margin-left: 18px;" required>
+                                        <label class="control-label" style="font-size: 18px; vertical-align: top; padding-left: 5px;">1</label>
+                                        
+                                        <input type="radio" name="rating" value="2" style="width: 17px; height: 17px; margin-left: 18px;" required> 
+                                        <label class="control-label" style="font-size: 18px; vertical-align: top; padding-left: 5px;">2</label>
+                                        
+                                        <input type="radio" name="rating" value="3" style="width: 17px; height: 17px; margin-left: 18px;" required>
+                                        <label class="control-label" style="font-size: 18px; vertical-align: top; padding-left: 5px;">3</label>
+                                        
+                                        <input type="radio" name="rating" value="4" style="width: 17px; height: 17px; margin-left: 18px;" required>
+                                        <label class="control-label" style="font-size: 18px; vertical-align: top; padding-left: 5px;">4</label>
+                                        
+                                        <input type="radio" name="rating" value="5" style="width: 17px; height: 17px; margin-left: 18px;" required>
+                                        <label class="control-label" style="font-size: 18px; vertical-align: top; padding-left: 5px;">5</label>  
+                                </div>
+                            <br>
+                            </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label class="control-label" for="textarea">Message</label>
+                                    <textarea class="form-control"  name="message" rows="2"></textarea required>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <button type="submit" class="button button- boxed-btn" id="singlebutton" name="singlebutton">Feedback</button>
+                                </div>
+                            </div>
+                    </form>
+                </div>
+               
+            </div>
+        </div>
+</section>
+    <!-- ================ contact section end ================= -->
+        
+   
+{%endblock%}

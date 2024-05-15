@@ -1,0 +1,115 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Basic Page Info -->
+	<meta charset="utf-8">
+	<title>Case Tracker - login</title>
+
+	<!-- Site favicon -->
+	<link rel="apple-touch-icon" sizes="180x180" href="{% static 'adminlawyer/login/vendors/images/apple-touch-icon.png'%}">
+	<link rel="icon" type="image/png" sizes="32x32" href="{% static 'adminlawyer/login/vendors/images/favicon-32x32.png'%}">
+	<link rel="icon" type="image/png" sizes="16x16" href="{% static 'adminlawyer/login/vendors/images/favicon-16x16.png'%}">
+
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- Google Font -->
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'adminlawyer/login/vendors/styles/core.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static 'adminlawyer/login/vendors/styles/icon-font.min.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static 'adminlawyer/login/vendors/styles/style.css'%}">
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-119386393-1');
+	</script>
+	<script type="text/javascript">
+		function myFunction() {
+	  var x = document.getElementById("password");
+	  if (x.type === "password") {
+		x.type = "text";
+	  } else {
+		x.type = "password";
+	  }
+	}
+	</script>
+</head>
+<body class="login-page">
+	
+	<div class="login-wrap d-flex align-items-center flex-wrap justify-content-center">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-md-6 col-lg-7">
+					<img src="{% static 'adminlawyer/login/vendors/images/login_bg.png'%}" alt="">
+				</div>
+				<div class="col-md-6 col-lg-5">
+					<div class="login-box bg-white box-shadow border-radius-10">
+						<div class="login-title" w>
+							<h2 class="text-center text-dark">Login To Case Tracker</h2>
+						</div>
+						
+						<form method="post" action="/adminlawyer/login_check">
+							{% csrf_token %}
+							{% if messages %}
+							<ul class="messages" style="height: 80px; background-color: lightgrey;">
+								{% for message in messages %}
+
+								<li style="font-size: 25px; list-style: none; line-height: 80px; font-weight: bolder; color: red;" class="text-center" {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+								{% endfor %}
+							</ul>
+							{% endif %}
+							
+							<div class="input-group custom">
+								<input type="text" class="form-control form-control-lg" placeholder="Username" name="username">
+								<div class="input-group-append custom">
+									<span class="input-group-text"><i class="icon-copy dw dw-user1"></i></span>
+								</div>
+							</div>
+							<div class="input-group custom">
+								<input type="password"  class="form-control form-control-lg" id="password" name="password" placeholder="password">
+								<div class="input-group-append custom">
+									<span class="input-group-text"><i class="dw dw-padlock1"></i></span>
+								</div>
+							</div>
+							<div class="row pb-30">
+								<div class="col-6">
+									<div class="control checkbox">
+										&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+										<input type="checkbox" class="form-check-input" onclick="myFunction()">  Show Password
+										
+									</div>
+								</div>
+								<div class="col-6">
+									<div class="forgot-password"><a href="forgot-password.html">Forgot Password</a></div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-12">
+									<div class="input-group mb-0">
+										<button type="submit"  name="submit"  class="btn btn-danger btn-lg btn-block">Sign In</button>
+										
+									</div>
+									
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- js -->
+	<script src="{% static 'adminlawyer/login/vendors/scripts/core.js'%}"></script>
+	<script src="{% static 'adminlawyer/login/vendors/scripts/script.min.js'%}"></script>
+	<script src="{% static 'adminlawyer/login/vendors/scripts/process.js'%}"></script>
+	<script src="{% static 'adminlawyer/login/vendors/scripts/layout-settings.js'%}"></script>
+</body>
+</html>

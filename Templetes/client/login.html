@@ -1,0 +1,136 @@
+{% extends 'client/layout.html' %}
+{% load static %}
+{%block content%}
+<style>
+ <style>
+  /* CSS for hover effect */
+  .form-contact {
+    transition: box-shadow 0.3s ease; /* Smooth transition */
+  }
+
+  .form-contact:hover {
+    box-shadow: 0 0 20px rgba(3, 46, 189, 0.5); /* Box-shadow with equal distribution */
+    padding: 20px;
+  }
+  
+  @keyframes rainbow {
+    0% { border-color: red; }
+    20% { border-color: orange; }
+    40% { border-color: yellow; }
+    60% { border-color: green; }
+    80% { border-color: blue; }
+    100% { border-color: purple; }
+  }
+
+  /* Apply the rainbow animation to valid input elements */
+  .rainbow-border {
+    animation: rainbow 2s infinite; /* Apply the rainbow animation infinitely */
+    transition: border-color 0.3s ease; /* Smooth transition */
+  }
+
+  /* Apply the rainbow animation to focused valid input elements */
+  .rainbow-border:focus {
+    animation-play-state: paused; /* Pause the animation on focus */
+    border-color: rgba(0, 0, 0, 0.5); /* Change border color on focus */
+  }
+</style>
+</style>
+<section class="contact-section">
+  <div class="container">
+              {% if messages %}
+    <ul class="messages" style="height: 80px; background-color: lightgrey;">
+        {% for message in messages %}
+
+        <li style="font-size: 25px; list-style: none; line-height: 80px; font-weight: bolder; color: red;" class="text-center" {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+      <div class="row">
+          <div class="col-12">
+              <h2 class="contact-title">Login</h2>
+
+          </div>
+          <div class="col-lg-8">
+              <form class="form-contact contact_form" method="post" action="/client/login_check">
+                {% csrf_token %}
+                  <div class="row">
+                      <div class="col-sm-12">
+                          <div class="form-group">
+                            <input type="text" class="form-control" id="username" name="username" placeholder="Username" pattern="[a-zA-Z0-9]{4,20}">
+                          </div>
+                      </div>
+                      <div class="col-sm-12">
+                          <div class="form-group">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password" pattern="[a-zA-Z0-9]{8,20}" placeholder="e.g. pratik123">
+                            <span id="passworderror" class="error"></span><br>
+                           &#160;&#160;&#160;&#160;&#160;&#160;<input type="checkbox" class="form-check-input" onclick="myFunction()">  Show Password  
+                           <a href="/client/forgot" style="float: right;">Forgot Password ?</a>
+                          </div>
+                          
+                      </div>
+                      
+                  </div>
+                  <div class="form-group mt-3">
+                      <button id="singlebutton" name="singlebutton" class="button button-contactForm boxed-btn" >Login</button>
+                  </div>
+              </form>
+          </div>
+          <div class="col-lg-3 offset-lg-1">
+              <img src="{%static 'client/img/Login.jpg'%}" height="380px" width="500px">
+              
+          </div>
+      </div>
+  </div>
+</section>
+<script>
+  const usernameInput = document.getElementById("username");
+  const errorMsg = document.getElementById("error-msg");
+  
+  const passwordInput = document.getElementById("password");
+  const passwordErrorMsg = document.getElementById("password-error");
+ 
+  function validateUsername() {
+    if (usernameInput.validity.patternMismatch) {
+      errormsg.textContent = "Username must be between 3 and 20 letters and only contains letters and numbers";
+      usernameInput.setCustomValidity("Username must be between 3 and 20 letters and only contains letters and numbers");
+    } else {
+      errormsg.textContent = "";
+      usernameInput.setCustomValidity("");
+    }
+
+    if (fullnameInput.validity.valid && usernameInput.validity.valid && passwordInput.validity.valid && emailInput.validity.valid && contactNumberInput.validity.valid && photoInput.validity.valid && zipcodeInput.validity.valid) {
+      submitBtn.disabled = false;
+    }
+  }
+
+  function validatePassword() {
+    if (passwordInput.validity.patternMismatch) {
+      passworderror.textContent = "Password must be between 8 and 20 letters and only contains letters and numbers";
+      passwordInput.setCustomValidity("patternMismatch must be between 8 and 20 letters and only contains letters and numbers");
+    } else {
+      passworderror.textContent = "";
+      passwordInput.setCustomValidity("");
+    } 
+    if (fullnameInput.validity.valid && usernameInput.validity.valid && passwordInput.validity.valid && emailInput.validity.valid && contactNumberInput.validity.valid && photoInput.validity.valid && zipcodeInput.validity.valid) {
+      submitBtn.disabled = false;
+    }
+    
+  }
+  usernameInput.addEventListener("input", validateUsername);
+  passwordInput.addEventListener("input", validatePassword);
+  
+</script>
+
+<script type="text/javascript">
+  function myFunction() {
+var x = document.getElementById("password");
+if (x.type === "password") {
+  x.type = "text";
+} else {
+  x.type = "password";
+}
+}
+
+
+</script>
+{% endblock %}
